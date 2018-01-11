@@ -19,12 +19,13 @@ build:
     - script: 
       name: build
       code: |
-        mkdir -p /usr/local/tomcat/webapps/uacpolicy
+        rm -fr /usr/local/tomcat/webapps/*
+        mkdir -p /usr/local/tomcat/webapps/ROOT
         ls
         echo 'pwd1'
         pwd
-        mv ./uacpolicy.war /usr/local/tomcat/webapps/uacpolicy/
-        cd /usr/local/tomcat/webapps/uacpolicy 
+        mv ./uacpolicy.war /usr/local/tomcat/webapps/ROOT/
+        cd /usr/local/tomcat/webapps/ROOT 
         du -sh ./*
         jar -xvf uacpolicy.war
         rm -fr uacpolicy.war
