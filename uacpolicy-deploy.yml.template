@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: uacpolicy
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: uacpolicy
+    spec:
+      containers:
+      - name: uacpolicy
+        image: wcr.io/zteuac/uacpolicy:$TAG
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: 4Gi
+        imagePullPolicy: Always
+      imagePullSecrets:
+      - name: wrelease
